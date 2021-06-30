@@ -1,0 +1,38 @@
+asyncapi: 2.0.0
+info:
+  title: Debtor Service
+  version: 1.0.0
+  description: This service is in charge of Handling Debits
+servers:
+  payment_processing_production:
+    url: kafka.prod.broker
+    protocol: kafka
+    description: This is "payment processing" broker.
+    
+channels:
+  payment_processing_debit:
+    subscribe:
+      message:
+        $ref: '#/components/messages/DebitMessage'
+          
+components:
+  messages:
+    DebitMessage:
+      contentType:  application/json
+      payload:
+       $ref:  '#/components/schemas/Debtor'
+    
+  schemas:
+    Debtor:
+      payload:
+        type:  object
+        properties:
+          debtor_identification:  string
+          account_number:  string
+          institution_code: string
+          institution_name:  string
+          country:  string
+        
+
+
+       
