@@ -1,0 +1,125 @@
+asyncapi: 2.0.0
+info:
+  title: Payment Processor Service
+  version: 1.0.0
+  description: This service is in charge of orchestrating a Payment
+servers:
+  payment_initation_production:
+    url: amqp.prod.broker
+    protocol: amqp
+    description: This is "payment ingestion" broker.
+  notification_production:
+    url: mqtt.prod.broker
+    protocol: secure_mqtt
+    description: This is "the payment notification" broker.
+  payment_processing_production:
+    url: kafka.prod.broker
+    protocol: kafka
+    description: This is "payment processing" broker.
+  payment_settlement_production:
+    url: mq.prod.broker
+    protocol: jms
+    description: This is "payment settlement" broker.
+    
+channels:
+  payment_initiation:
+    subscribe:
+      message:
+        $ref: '#/components/messages/PaymentInitiationRequest'
+  payment_notification:
+    publish:
+      message:
+        $ref: '#/components/messages/NotificationMessage'
+  payment_processing_debit:
+    publish:
+      message:
+        $ref: '#/components/messages/DebitMessage'
+  payment_processing_credit:
+    publish:
+      message:
+        $ref: '#/components/messages/CreditMessage'
+  payment_processing_settlement:
+    publish:
+      message:
+        $ref: '#/components/messages/PaymentInitiationRequest'
+  
+        
+  
+components:
+  messages:
+    PaymentInitiationRequest:
+      contentType:  application/json
+      payload:
+        type: object
+        properties:
+          amount:
+            $ref:  '#/components/schemas/InstructedAmount'
+          debtor:
+           $ref:  '#/components/schemas/Debtor'
+          creditor:
+            $ref:  '#/components/schemas/Creditor'
+    NotificationMessage:
+      contentType:  application/json
+      payload:
+        $ref:  '#/components/schemas/Notification'
+    DebitMessage:
+      contentType:  application/json
+      payload:
+       $ref:  '#/components/schemas/Debtor'
+    CreditMessage:
+      contentType:  application/json
+      payload:
+        $ref:  '#/components/schemas/Creditor'
+        
+    
+
+  schemas:
+    InstructedAmount:
+      payload:
+        type:  object
+        properties:
+          amount:  number
+          exchange_rate: number
+        
+    Debtor:
+      payload:
+        type:  object
+        properties:
+          debtor_identification:  string
+          account_number:  string
+          institution_code: string
+          institution_name:  string
+          country:  string
+        
+    Creditor:
+      payload:
+        type:  object
+        properties:
+          creditor_identification:  string
+          account_number:  string
+          institution_code: string
+          institution_name:  string
+          country:  string
+          
+    Notification:
+      payload:
+       type:  object
+       properties:
+         message:  string
+         notification_channel:
+           enum:
+             - sms
+             - email
+             - websockets
+         transaction_type:  string
+         transaction_id:  string
+           
+
+
+
+       
+       
+        
+        
+        
+      
