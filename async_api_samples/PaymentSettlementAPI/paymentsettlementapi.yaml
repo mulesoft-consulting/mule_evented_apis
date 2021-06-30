@@ -1,0 +1,62 @@
+asyncapi: 2.0.0
+info:
+  title: Payment Settlement Service
+  version: 1.0.0
+  description: This service is in charge of orchestrating a Payment
+servers:
+  payment_settlement_production:
+    url: mq.prod.broker
+    protocol: jms
+    description: This is "payment settlement" broker.
+    
+channels:
+  payment_processing_settlement:
+    subscribe:
+      message:
+        $ref: '#/components/messages/PaymentInitiationRequest'
+  
+        
+  
+components:
+  messages:
+    PaymentInitiationRequest:
+      contentType:  application/json
+      payload:
+        type: object
+        properties:
+          amount:
+            $ref:  '#/components/schemas/InstructedAmount'
+          debtor:
+           $ref:  '#/components/schemas/Debtor'
+          creditor:
+            $ref:  '#/components/schemas/Creditor'
+       
+  schemas:
+    InstructedAmount:
+      payload:
+        type:  object
+        properties:
+          amount:  number
+          exchange_rate: number
+        
+    Debtor:
+      payload:
+        type:  object
+        properties:
+          debtor_identification:  string
+          account_number:  string
+          institution_code: string
+          institution_name:  string
+          country:  string
+        
+    Creditor:
+      payload:
+        type:  object
+        properties:
+          creditor_identification:  string
+          account_number:  string
+          institution_code: string
+          institution_name:  string
+          country:  string
+          
+
