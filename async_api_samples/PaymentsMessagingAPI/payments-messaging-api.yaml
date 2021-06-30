@@ -1,0 +1,70 @@
+asyncapi: '2.0.0'
+info:
+  title: 'Payments Messaging API'
+  version: '1.0.0'
+  description: 'Payments Messaging Async API to send payments messages to ACH, FedWire or SWIFT'
+
+servers:
+  production_jms:
+    url: path.jms.prod.com
+    protocol: jms
+    description: Test JMS broker
+    variables:
+      port:
+        description: Port for JMS broker
+        default: '9092'
+  production_nats:
+    url: path.nats.prod.com
+    protocol: nats
+    description: Test NATS broker
+    variables:
+      port:
+        description: Port for NATS broker
+        default: '9092'
+
+components:
+  messages:
+    achMessage:
+      schemaFormat: application/raml+yaml;version=1.0
+      contentType: application/json
+      payload:
+        $ref: schemas/ach-raml-schema.raml
+    fedwireMessage:
+      schemaFormat: application/raml+yaml;version=1.0
+      contentType: application/json
+      payload:
+        $ref: schemas/fedwire-raml-schema.raml
+    swiftMessage:
+      schemaFormat: application/raml+yaml;version=1.0
+      contentType: application/json
+      payload:
+        $ref: schemas/swift-raml-schema.raml
+      
+channels:
+  ach:
+    subscribe:
+      description: 'Subscribe to ACH payments messages'
+      message:
+        $ref: "#/components/messages/achMessage"
+    publish:
+      description: 'Publish ACH payments messages'
+      message:
+        $ref: "#/components/messages/achMessage"
+  fedwire:
+    subscribe:
+      description: 'Subscribe to FedWire payments messages'
+      message:
+        $ref: "#/components/messages/fedwireMessage"
+    publish:
+      description: 'Publish FedWire payments messages'
+      message:
+        $ref: "#/components/messages/fedwireMessage"
+  swift:
+    subscribe:
+      description: 'Subscribe to SWIFT payments messages'
+      message:
+        $ref: "#/components/messages/swiftMessage"
+    publish:
+      description: 'Publish SWIFT payments messages'
+      message:
+        $ref: "#/components/messages/swiftMessage"

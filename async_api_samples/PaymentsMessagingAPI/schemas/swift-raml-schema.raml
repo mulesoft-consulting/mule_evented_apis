@@ -1,0 +1,72 @@
+#%RAML 1.0 DataType
+properties:
+  timestamp:
+    type: string
+    example: '2020-08-12T01:32:04Z'
+  version:
+    type: integer
+    example: 2
+  data:
+    type: object
+    properties:
+      block1:
+        type: object
+        properties:
+          applicationId:
+            type: string
+            example: 'F'
+          serviceId:
+            type: string
+            example: '01'
+          logicalTerminal:
+            type: string
+            example: 'ROYCCAT2AIBO'
+          sessionNumber:
+            type: string
+            example: '0000'
+          sequenceNumber:
+            type: string
+            example: '000000'
+      block2:
+        type: object
+        properties:
+          receiverAddress:
+            type: string
+            example: 'BOFAUS3NXXXX'
+          messagePriority:
+            type: string
+            example: 'N'
+          messageType:
+            type: string
+            example: '103'
+          direction:
+            type: string
+            example: 'I'
+      block3:
+        type: object
+        properties:
+          tags:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '121'
+                value:
+                  type: string
+                  example: '083b8a76-ae1b-4ff0-ba84-8ad371238bf3'
+      block4:
+        type: object
+        properties:
+          tags:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '20'
+                value:
+                  type: string
+                  example: 'Pmtx-1234578o809'

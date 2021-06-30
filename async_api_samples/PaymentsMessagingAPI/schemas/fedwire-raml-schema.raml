@@ -1,0 +1,1201 @@
+#%RAML 1.0 DataType
+properties:
+  ID:
+    type: string
+    example: '3f2d23ee214'
+  fedWireMessage:
+    type: object
+    properties:
+      ID:
+        type: string
+        example: '3f2d23ee214'
+      messageDisposition:
+        type: object
+        properties:
+          formatVersion:
+            type: string
+            example: '30'
+          testProductionCode:
+            type: string
+            example: 'T'
+          messageDuplicationCode:
+            type: string
+            example: ''
+          messageStatusIndicator:
+            type: integer
+            example: 0
+      receiptTimeStamp:
+        type: object
+        properties:
+          receiptDate:
+            type: string
+            example: '0401'
+          receiptTime:
+            type: string
+            example: '1305'
+          receiptApplicationIdentification:
+            type: string
+            example: 'RB11'
+      outputMessageAccountabilityData:
+        type: object
+        properties:
+          outputCycleDate:
+            type: string
+            example: '20190401'
+          outputDestinationID:
+            type: string
+            example: '12345678'
+          outputSequenceNumber:
+            type: string
+            example: '000001'
+          outputDate:
+            type: string
+            example: '0401'
+          outputTime:
+            type: string
+            example: '1305'
+          outputFRBApplicationIdentification:
+            type: string
+            example: 'OB11'
+      errorWire:
+        type: object
+        properties:
+          errorCategory:
+            type: string
+            example: 'E'
+          errorCode:
+            type: string
+            example: 'E99'
+          errorDescription:
+            type: string
+            example: 'Data Error'
+      senderSupplied:
+        type: object
+        properties:
+          formatVersion:
+            type: string
+            example: '30'
+          userRequestCorrelation:
+            type: string
+            example: 'TESTDATA'
+          testProductionCode:
+            type: string
+            example: 'T'
+          messageDuplicationCode:
+            type: string
+            example: ''
+      typeSubType:
+        type: object
+        properties:
+          typeCode:
+            type: string
+            example: '10'
+          subTypeCode:
+            type: string
+            example: '00'
+      inputMessageAccountabilityData:
+        type: object
+        properties:
+          inputCycleDate:
+            type: integer
+            example: 20191201
+          inputSource:
+            type: string
+            example: 'XYZ ABC'
+          inputSequenceNumber:
+            type: string
+            example: '000001'
+      amount:
+        type: object
+        properties:
+          amount:
+            type: string
+            example: '000000100000'
+      senderDepositoryInstitution:
+        type: object
+        properties:
+          senderABANumber:
+            type: string
+            example: '091905114'
+          senderShortName:
+            type: string
+            example: 'MIDWESTONE B&T'
+      receiverDepositoryInstitution:
+        type: object
+        properties:
+          receiverABANumber:
+            type: string
+            example: '091905664'
+          receiverShortName:
+            type: string
+            example: 'PREMIER BANK'
+      businessFunctionCode:
+        type: object
+        properties:
+          businessFunctionCode:
+            type: string
+            example: 'BTR'
+          transactionTypeCode:
+            type: string
+            example: ''
+      senderReference:
+        type: object
+        properties:
+          senderReference:
+            type: string
+            example: 'Reference'
+      previousMessageIdentifier:
+        type: object
+        properties:
+          previousMessageIdentifier:
+            type: string
+            example: 'string'
+      localInstrument:
+        type: object
+        properties:
+          localInstrumentCode:
+            type: string
+            example: 'ANSI'
+          proprietaryCode:
+            type: string
+            example: 'WJD786363'
+      paymentNotification:
+        type: object
+        properties:
+          paymentNotificationIndicator:
+            type: string
+            example: '1'
+          contactNotificationElectronicAddress:
+            type: string
+            example: 'https://moov.io/'
+          contactName:
+            type: string
+            example: 'Wade Arnold'
+          contactPhoneNumber:
+            type: string
+            example: '555-555-5555'
+          contactMobileNumber:
+            type: string
+            example: '555-555-5555'
+          faxNumber:
+            type: string
+            example: '555-555-5555'
+          endToEndIdentification:
+            type: string
+            example: 'WireTransfer 10001'
+      charges:
+        type: object
+        properties:
+          chargeDetails:
+            type: string
+            example: ''
+          sendersChargesOne:
+            type: string
+            example: 'USD1234.56'
+          sendersChargesTwo:
+            type: string
+            example: 'USD1234.56'
+          sendersChargesThree:
+            type: string
+            example: 'USD1234.56'
+          sendersChargesFour:
+            type: string
+            example: 'USD1234.56'
+      instructedAmount:
+        type: object
+        properties:
+          currencyCode:
+            type: string
+            example: 'USD'
+          amount:
+            type: string
+            example: 'string'
+      exchangeRate:
+        type: object
+        properties:
+          exchangeRate:
+            type: string
+            example: '1.2345'
+      beneficiaryIntermediaryFI:
+        type: object
+        properties:
+          identificationCode:
+            type: string
+            example: 'B'
+          identifier:
+            type: string
+            example: 'string'
+          name:
+            type: string
+            example: 'string'
+          address:
+            type: object
+            properties:
+              addressLineOne:
+                type: string
+                example: 'string'
+              addressLineTwo:
+                type: string
+                example: 'string'
+              addressLineThree:
+                type: string
+                example: 'string'
+      beneficiaryFI:
+        type: object
+        properties:
+          identificationCode:
+            type: string
+            example: 'B'
+          identifier:
+            type: string
+            example: 'string'
+          name:
+            type: string
+            example: 'string'
+          address:
+            type: object
+            properties:
+              addressLineOne:
+                type: string
+                example: 'string'
+              addressLineTwo:
+                type: string
+                example: 'string'
+              addressLineThree:
+                type: string
+                example: 'string'
+      beneficiary:
+        type: object
+        properties:
+          personal:
+            type: object
+            properties:
+              identificationCode:
+                type: string
+                example: 'B'
+              identifier:
+                type: string
+                example: 'string'
+              name:
+                type: string
+                example: 'string'
+              address:
+                type: object
+                properties:
+                  addressLineOne:
+                    type: string
+                    example: 'string'
+                  addressLineTwo:
+                    type: string
+                    example: 'string'
+                  addressLineThree:
+                    type: string
+                    example: 'string'
+      beneficiaryReference:
+        type: object
+        properties:
+          beneficiaryReference:
+            type: string
+            example: 'Test Data'
+      accountDebitedDrawdown:
+        type: object
+        properties:
+          identificationCode:
+            type: string
+            example: 'D'
+          identifier:
+            type: string
+            example: 'string'
+          name:
+            type: string
+            example: 'string'
+          addressLineOne:
+            type: string
+            example: 'string'
+          addressLineTwo:
+            type: string
+            example: 'string'
+          addressLineThree:
+            type: string
+            example: 'string'
+      originator:
+        type: object
+        properties:
+          personal:
+            type: object
+            properties:
+              identificationCode:
+                type: string
+                example: 'B'
+              identifier:
+                type: string
+                example: 'string'
+              name:
+                type: string
+                example: 'string'
+              address:
+                type: object
+                properties:
+                  addressLineOne:
+                    type: string
+                    example: 'string'
+                  addressLineTwo:
+                    type: string
+                    example: 'string'
+                  addressLineThree:
+                    type: string
+                    example: 'string'
+      originatorOptionF:
+        type: object
+        properties:
+          partyIdentifier:
+            type: string
+            example: '/123456'
+          name:
+            type: string
+            example: '1/SMITH JOHN'
+          lineOne:
+            type: string
+            example: '2/123 MAIN STREET'
+          lineTwo:
+            type: string
+            example: '3/US/NEW YORK, NY 10000'
+          lineThree:
+            type: string
+            example: '7/111-22-3456'
+      originatorFI:
+        type: object
+        properties:
+          identificationCode:
+            type: string
+            example: 'B'
+          identifier:
+            type: string
+            example: 'string'
+          name:
+            type: string
+            example: 'string'
+          address:
+            type: object
+            properties:
+              addressLineOne:
+                type: string
+                example: 'string'
+              addressLineTwo:
+                type: string
+                example: 'string'
+              addressLineThree:
+                type: string
+                example: 'string'
+      instructingFI:
+        type: object
+        properties:
+          identificationCode:
+            type: string
+            example: 'B'
+          identifier:
+            type: string
+            example: 'string'
+          name:
+            type: string
+            example: 'string'
+          address:
+            type: object
+            properties:
+              addressLineOne:
+                type: string
+                example: 'string'
+              addressLineTwo:
+                type: string
+                example: 'string'
+              addressLineThree:
+                type: string
+                example: 'string'
+      accountCreditedDrawdown:
+        type: object
+        properties:
+          drawdownCreditAccountNumber:
+            type: string
+            example: '121042882'
+      originatorToBeneficiary:
+        type: object
+        properties:
+          lineOne:
+            type: string
+            example: 'Line One'
+          lineTwo:
+            type: string
+            example: 'Line Two'
+          lineThree:
+            type: string
+            example: 'Line Three'
+          lineFour:
+            type: string
+            example: 'Line Four'
+      fiReceiverFI:
+        type: object
+        properties:
+          lineOne:
+            type: string
+            example: 'Line One'
+          lineTwo:
+            type: string
+            example: 'Line Two'
+          lineThree:
+            type: string
+            example: 'Line Three'
+          lineFour:
+            type: string
+            example: 'Line Four'
+          lineFive:
+            type: string
+            example: 'Line Five'
+          lineSix:
+            type: string
+            example: 'Line Six'
+      fiDrawdownDebitAccountAdvice:
+        type: object
+        properties:
+          adviceCode:
+            type: string
+            example: 'HLD'
+          lineOne:
+            type: string
+            example: 'Line One'
+          lineTwo:
+            type: string
+            example: 'Line Two'
+          lineThree:
+            type: string
+            example: 'Line Three'
+          lineFour:
+            type: string
+            example: 'Line Four'
+          lineFive:
+            type: string
+            example: 'Line Five'
+          lineSix:
+            type: string
+            example: 'Line Six'
+      fiIntermediaryFI:
+        type: object
+        properties:
+          lineOne:
+            type: string
+            example: 'Line One'
+          lineTwo:
+            type: string
+            example: 'Line Two'
+          lineThree:
+            type: string
+            example: 'Line Three'
+          lineFour:
+            type: string
+            example: 'Line Four'
+          lineFive:
+            type: string
+            example: 'Line Five'
+          lineSix:
+            type: string
+            example: 'Line Six'
+      fiIntermediaryFIAdvice:
+        type: object
+        properties:
+          adviceCode:
+            type: string
+            example: 'HLD'
+          lineOne:
+            type: string
+            example: 'Line One'
+          lineTwo:
+            type: string
+            example: 'Line Two'
+          lineThree:
+            type: string
+            example: 'Line Three'
+          lineFour:
+            type: string
+            example: 'Line Four'
+          lineFive:
+            type: string
+            example: 'Line Five'
+          lineSix:
+            type: string
+            example: 'Line Six'
+      fiBeneficiaryFI:
+        type: object
+        properties:
+          lineOne:
+            type: string
+            example: 'Line One'
+          lineTwo:
+            type: string
+            example: 'Line Two'
+          lineThree:
+            type: string
+            example: 'Line Three'
+          lineFour:
+            type: string
+            example: 'Line Four'
+          lineFive:
+            type: string
+            example: 'Line Five'
+          lineSix:
+            type: string
+            example: 'Line Six'
+      fiBeneficiaryFIAdvice:
+        type: object
+        properties:
+          adviceCode:
+            type: string
+            example: 'HLD'
+          lineOne:
+            type: string
+            example: 'Line One'
+          lineTwo:
+            type: string
+            example: 'Line Two'
+          lineThree:
+            type: string
+            example: 'Line Three'
+          lineFour:
+            type: string
+            example: 'Line Four'
+          lineFive:
+            type: string
+            example: 'Line Five'
+          lineSix:
+            type: string
+            example: 'Line Six'
+      fiBeneficiary:
+        type: object
+        properties:
+          lineOne:
+            type: string
+            example: 'Line One'
+          lineTwo:
+            type: string
+            example: 'Line Two'
+          lineThree:
+            type: string
+            example: 'Line Three'
+          lineFour:
+            type: string
+            example: 'Line Four'
+          lineFive:
+            type: string
+            example: 'Line Five'
+          lineSix:
+            type: string
+            example: 'Line Six'
+      fiBeneficiaryAdvice:
+        type: object
+        properties:
+          adviceCode:
+            type: string
+            example: 'HLD'
+          lineOne:
+            type: string
+            example: 'Line One'
+          lineTwo:
+            type: string
+            example: 'Line Two'
+          lineThree:
+            type: string
+            example: 'Line Three'
+          lineFour:
+            type: string
+            example: 'Line Four'
+          lineFive:
+            type: string
+            example: 'Line Five'
+          lineSix:
+            type: string
+            example: 'Line Six'
+      fiPaymentMethodToBeneficiary:
+        type: object
+        properties:
+          paymentMethod:
+            type: string
+            example: 'CHECK'
+          AdditionalInformation:
+            type: string
+            example: 'For goods and services'
+      fiAdditionalFIToFI:
+        type: object
+        properties:
+          lineOne:
+            type: string
+            example: 'Line One'
+          lineTwo:
+            type: string
+            example: 'Line Two'
+          lineThree:
+            type: string
+            example: 'Line Three'
+          lineFour:
+            type: string
+            example: 'Line Four'
+          lineFive:
+            type: string
+            example: 'Line Five'
+          lineSix:
+            type: string
+            example: 'Line Six'
+      currencyInstructedAmount:
+        type: object
+        properties:
+          swiftFieldTag:
+            type: string
+            example: 'SWIFT'
+          amount:
+            type: string
+            example: '1234.56'
+      orderingCustomer:
+        type: object
+        properties:
+          swiftFieldTag:
+            type: string
+            example: 'SWIFT'
+          swiftLineOne:
+            type: string
+            example: 'Swift Line One'
+          swiftLineTwo:
+            type: string
+            example: 'Swift Line Two'
+          swiftLineThree:
+            type: string
+            example: 'Swift Line Three'
+          swiftLineFour:
+            type: string
+            example: 'Swift Line Four'
+          swiftLineFive:
+            type: string
+            example: 'Swift Line Five'
+          swiftLineSix:
+            type: string
+            example: 'Swift Line Six'
+      orderingInstitution:
+        type: object
+        properties:
+          swiftFieldTag:
+            type: string
+            example: 'SWIFT'
+          swiftLineOne:
+            type: string
+            example: 'Swift Line One'
+          swiftLineTwo:
+            type: string
+            example: 'Swift Line Two'
+          swiftLineThree:
+            type: string
+            example: 'Swift Line Three'
+          swiftLineFour:
+            type: string
+            example: 'Swift Line Four'
+          swiftLineFive:
+            type: string
+            example: 'Swift Line Five'
+          swiftLineSix:
+            type: string
+            example: 'Swift Line Six'
+      intermediaryInstitution:
+        type: object
+        properties:
+          swiftFieldTag:
+            type: string
+            example: 'SWIFT'
+          swiftLineOne:
+            type: string
+            example: 'Swift Line One'
+          swiftLineTwo:
+            type: string
+            example: 'Swift Line Two'
+          swiftLineThree:
+            type: string
+            example: 'Swift Line Three'
+          swiftLineFour:
+            type: string
+            example: 'Swift Line Four'
+          swiftLineFive:
+            type: string
+            example: 'Swift Line Five'
+          swiftLineSix:
+            type: string
+            example: 'Swift Line Six'
+      institutionAccount:
+        type: object
+        properties:
+          swiftFieldTag:
+            type: string
+            example: 'SWIFT'
+          swiftLineOne:
+            type: string
+            example: 'Swift Line One'
+          swiftLineTwo:
+            type: string
+            example: 'Swift Line Two'
+          swiftLineThree:
+            type: string
+            example: 'Swift Line Three'
+          swiftLineFour:
+            type: string
+            example: 'Swift Line Four'
+          swiftLineFive:
+            type: string
+            example: 'Swift Line Five'
+          swiftLineSix:
+            type: string
+            example: 'Swift Line Six'
+      beneficiaryCustomer:
+        type: object
+        properties:
+          swiftFieldTag:
+            type: string
+            example: 'SWIFT'
+          swiftLineOne:
+            type: string
+            example: 'Swift Line One'
+          swiftLineTwo:
+            type: string
+            example: 'Swift Line Two'
+          swiftLineThree:
+            type: string
+            example: 'Swift Line Three'
+          swiftLineFour:
+            type: string
+            example: 'Swift Line Four'
+          swiftLineFive:
+            type: string
+            example: 'Swift Line Five'
+          swiftLineSix:
+            type: string
+            example: 'Swift Line Six'
+      remittance:
+        type: object
+        properties:
+          swiftFieldTag:
+            type: string
+            example: 'SWIFT'
+          swiftLineOne:
+            type: string
+            example: 'Swift Line One'
+          swiftLineTwo:
+            type: string
+            example: 'Swift Line Two'
+          swiftLineThree:
+            type: string
+            example: 'Swift Line Three'
+          swiftLineFour:
+            type: string
+            example: 'Swift Line Four'
+          swiftLineFive:
+            type: string
+            example: 'Swift Line Five'
+          swiftLineSix:
+            type: string
+            example: 'Swift Line Six'
+      senderToReceiver:
+        type: object
+        properties:
+          swiftFieldTag:
+            type: string
+            example: 'SWIFT'
+          swiftLineOne:
+            type: string
+            example: 'Swift Line One'
+          swiftLineTwo:
+            type: string
+            example: 'Swift Line Two'
+          swiftLineThree:
+            type: string
+            example: 'Swift Line Three'
+          swiftLineFour:
+            type: string
+            example: 'Swift Line Four'
+          swiftLineFive:
+            type: string
+            example: 'Swift Line Five'
+          swiftLineSix:
+            type: string
+            example: 'Swift Line Six'
+      unstructuredAddenda:
+        type: object
+        properties:
+          addendaLength:
+            type: string
+            example: '0987'
+          addenda:
+            type: string
+            example: 'Payment for goods'
+      relatedRemittance:
+        type: object
+        properties:
+          remittanceIdentification:
+            type: string
+            example: 'Remittance Identification'
+          remittanceLocationMethod:
+            type: string
+            example: 'EDIC'
+          remittanceLocationElectronicAddress:
+            type: string
+            example: 'https://moov.io'
+          remittanceData:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 'Wade Arnold'
+              addressType:
+                type: string
+                example: 'ADDR'
+              department:
+                type: string
+                example: 'Buildings'
+              subDepartment:
+                type: string
+                example: 'Service'
+              streetName:
+                type: string
+                example: 'Street Way Boulevard'
+              buildingNumber:
+                type: string
+                example: '1A'
+              postCode:
+                type: string
+                example: '19465'
+              townName:
+                type: string
+                example: 'Any Town'
+              countrySubDivisionState:
+                type: string
+                example: 'PA'
+              country:
+                type: string
+                example: 'US'
+              addressLineOne:
+                type: string
+                example: 'AddressLineOne'
+              addressLineTwo:
+                type: string
+                example: 'AddressLineTwo'
+              addressLineThree:
+                type: string
+                example: 'AddressLineThree'
+              addressLineFour:
+                type: string
+                example: 'AddressLineFour'
+              addressLineFive:
+                type: string
+                example: 'AddressLineFive'
+              addressLineSix:
+                type: string
+                example: 'AddressLineSix'
+              addressLineSeven:
+                type: string
+                example: 'AddressLineSeven'
+              countryOfResidence:
+                type: string
+                example: 'US'
+      remittanceOriginator:
+        type: object
+        properties:
+          identificationType:
+            type: string
+            example: 'OI'
+          identificationCode:
+            type: string
+            example: 'BANK'
+          identificationNumber:
+            type: string
+            example: '192827828'
+          identificationNumberIssuer:
+            type: string
+            example: 'Identification Number Issuer'
+          dateBirthPlace:
+            type: string
+            example: '03062013 Chester'
+          remittanceData:
+            properties:
+                name:
+                  type: string
+                  example: 'Wade Arnold'
+                addressType:
+                  type: string
+                  example: 'ADDR'
+                department:
+                  type: string
+                  example: 'Buildings'
+                subDepartment:
+                  type: string
+                  example: 'Service'
+                streetName:
+                  type: string
+                  example: 'Street Way Boulevard'
+                buildingNumber:
+                  type: string
+                  example: '1A'
+                postCode:
+                  type: string
+                  example: '19465'
+                townName:
+                  type: string
+                  example: 'Any Town'
+                countrySubDivisionState:
+                  type: string
+                  example: 'PA'
+                country:
+                  type: string
+                  example: 'US'
+                addressLineOne:
+                  type: string
+                  example: 'AddressLineOne'
+                addressLineTwo:
+                  type: string
+                  example: 'AddressLineTwo'
+                addressLineThree:
+                  type: string
+                  example: 'AddressLineThree'
+                addressLineFour:
+                  type: string
+                  example: 'AddressLineFour'
+                addressLineFive:
+                  type: string
+                  example: 'AddressLineFive'
+                addressLineSix:
+                  type: string
+                  example: 'AddressLineSix'
+                addressLineSeven:
+                  type: string
+                  example: 'AddressLineSeven'
+                countryOfResidence:
+                  type: string
+                  example: 'US'
+          countryOfResidence:
+            type: string
+            example: 'US'
+          contactName:
+            type: string
+            example: 'Wade Arnold'
+          contactPhoneNumber:
+            type: string
+            example: '555.555.5555'
+          contactMobileNumber:
+            type: string
+            example: '555.555.5555'
+          contactFaxNumber:
+            type: string
+            example: '555.555.5555'
+          contactElectronicAddress:
+            type: string
+            example: 'https://moov.io'
+          contactOther:
+            type: string
+            example: 'Contact Other'
+      remittanceBeneficiary:
+        type: object
+        properties:
+          identificationType:
+            type: string
+            example: 'OI'
+          identificationCode:
+            type: string
+            example: 'BANK'
+          identificationNumber:
+            type: string
+            example: '192827828'
+          identificationNumberIssuer:
+            type: string
+            example: 'Identification Number Issuer'
+          dateBirthPlace:
+            type: string
+            example: '03062013 Chester'
+          remittanceData:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 'Wade Arnold'
+              addressType:
+                type: string
+                example: 'ADDR'
+              department:
+                type: string
+                example: 'Buildings'
+              subDepartment:
+                type: string
+                example: 'Service'
+              streetName:
+                type: string
+                example: 'Street Way Boulevard'
+              buildingNumber:
+                type: string
+                example: '1A'
+              postCode:
+                type: string
+                example: '19465'
+              townName:
+                type: string
+                example: 'Any Town'
+              countrySubDivisionState:
+                type: string
+                example: 'PA'
+              country:
+                type: string
+                example: 'US'
+              addressLineOne:
+                type: string
+                example: 'AddressLineOne'
+              addressLineTwo:
+                type: string
+                example: 'AddressLineTwo'
+              addressLineThree:
+                type: string
+                example: 'AddressLineThree'
+              addressLineFour:
+                type: string
+                example: 'AddressLineFour'
+              addressLineFive:
+                type: string
+                example: 'AddressLineFive'
+              addressLineSix:
+                type: string
+                example: 'AddressLineSix'
+              addressLineSeven:
+                type: string
+                example: 'AddressLineSeven'
+              countryOfResidence:
+                type: string
+                example: 'US'
+      primaryRemittanceDocument:
+        type: object
+        properties:
+          documentTypeCode:
+            type: string
+            example: 'AROI'
+          proprietaryDocumentTypeCode:
+            type: string
+            example: 'Proprietary Code'
+          documentIdentificationNumber:
+            type: string
+            example: 'DOCUMENT 292828'
+          issuer:
+            type: string
+            example: 'Remittance Issuer'
+      actualAmountPaid:
+        type: object
+        properties:
+          currencyCode:
+            type: string
+            example: 'USD'
+          amount:
+            type: string
+            example: '1234.56789'
+      grossAmountRemittanceDocument:
+        type: object
+        properties:
+          currencyCode:
+            type: string
+            example: 'USD'
+          amount:
+            type: string
+            example: '1234.56789'
+      amountNegotiatedDiscount:
+        type: object
+        properties:
+          currencyCode:
+            type: string
+            example: 'USD'
+          amount:
+            type: string
+            example: '1234.56789'
+      adjustment:
+        type: object
+        properties:
+          adjustmentReasonCode:
+            type: string
+            example: 'CM'
+          creditDebitIndicator:
+            type: string
+            example: 'DBIT'
+          currencyCode:
+            type: string
+            example: 'USD'
+          amount:
+            type: string
+            example: '1234.56789'
+          additionalInfo:
+            type: string
+            example: 'Additional Info'
+      dateRemittanceDocument:
+        type: object
+        properties:
+          dateRemittanceDocument:
+            type: string
+            example: '20190401'
+      secondaryRemittanceDocument:
+        type: object
+        properties:
+          documentTypeCode:
+            type: string
+            example: 'AROI'
+          proprietaryDocumentTypeCode:
+            type: string
+            example: 'Proprietary'
+          documentIdentificationNumber:
+            type: string
+            example: 'Document2'
+          issuer:
+            type: string
+            example: 'Issuer'
+      remittanceFreeText:
+        type: object
+        properties:
+          lineOne:
+            type: string
+            example: 'Line One Text'
+          lineTwo:
+            type: string
+            example: 'Line Two Text'
+          lineThree:
+            type: string
+            example: 'Line Three Text'
+      serviceMessage:
+        type: object
+        properties:
+          lineOne:
+            type: string
+            example: 'Line One Text'
+          lineTwo:
+            type: string
+            example: 'Line Two Text'
+          lineThree:
+            type: string
+            example: 'Line Three Text'
+          lineFour:
+            type: string
+            example: 'Line Four Text'
+          lineFive:
+            type: string
+            example: 'Line Five Text'
+          lineSix:
+            type: string
+            example: 'Line Six Text'
+          lineSeven:
+            type: string
+            example: 'Line Seven Text'
+          lineEight:
+            type: string
+            example: 'Line Eight Text'
+          lineNine:
+            type: string
+            example: 'Line Nine Text'
+          lineTen:
+            type: string
+            example: 'Line Ten Text'
+          lineEleven:
+            type: string
+            example: 'Line Eleven Text'
+          lineTwelve:
+            type: string
+            example: 'Line Twelve Text'

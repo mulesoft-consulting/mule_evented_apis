@@ -1,0 +1,223 @@
+#%RAML 1.0 DataType
+properties:
+  file:
+    type: object
+    properties:
+      id:
+        type: string
+        example: '704977'
+      fileHeader:
+        type: object
+        properties:
+          id:
+            type: string
+            example: 'TESTID_FH'
+          immediateDestination:
+            type: string
+            example: '231380104'
+          immediateOrigin:
+            type: string
+            example: '121042882'
+          fileCreationDate:
+            type: string
+            example: '200903'
+          fileCreationTime:
+            type: string
+            example: ''
+          fileIDModifier:
+            type: string
+            example: 'A'
+          immediateDestinationName:
+            type: string
+            example: ''
+          immediateOriginName:
+            type: string
+            example: ''
+      batches:
+        type: array
+        items:
+          type: object
+          properties:
+            batchHeader:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: 'TESTID_B'
+                serviceClassCode:
+                  type: integer
+                  example: 200
+                companyName:
+                  type: string
+                  example: 'Wells Fargo'
+                companyIdentification:
+                  type: string
+                  example: '121042882'
+                standardEntryClassCode:
+                  type: string
+                  example: 'PPD'
+                companyEntryDescription:
+                  type: string
+                  example: 'Trans. Des'
+                effectiveEntryDate:
+                  type: string
+                  example: '200903'
+                originatorStatusCode:
+                  type: integer
+                  example: 1
+                ODFIIdentification:
+                  type: string
+                  example: '12104288'
+                batchNumber:
+                  type: integer
+                  example: 1
+            entryDetails:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 'TESTID_ED'
+                  transactionCode:
+                    type: integer
+                    example: 22
+                  RDFIIdentification:
+                    type: string
+                    example: '23138010'
+                  checkDigit:
+                    type: string
+                    example: "4"
+                  DFIAccountNumber:
+                    type: string
+                    example: '81967038518'
+                  amount:
+                    type: integer
+                    example: 341
+                  identificationNumber:
+                    type: string
+                    example: '#83738AB#'
+                  individualName:
+                    type: string
+                    example: 'Steven Tander'
+                  discretionaryData:
+                    type: string
+                    example: ''
+                  traceNumber:
+                    type: string
+                    example: '121042880000001'
+            batchControl:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: ''
+                serviceClassCode:
+                  type: integer
+                  example: 200
+                entryAddendaCount:
+                  type: integer
+                  example: 1
+                entryHash:
+                  type: integer
+                  example: 23138010
+                totalDebit:
+                  type: integer
+                  example: 0
+                totalCredit:
+                  type: integer
+                  example: 341
+                companyIdentification:
+                  type: string
+                  example: '121042882'
+                ODFIIdentification:
+                  type: string
+                  example: '12104288'
+                batchNumber:
+                  type: integer
+                  example: 1
+            advBatchControl:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: ''
+                serviceClassCode:
+                  type: integer
+                  example: 280
+                entryAddendaCount:
+                  type: integer
+                  example: 0
+                entryHash:
+                  type: integer
+                  example: 1
+                totalDebit:
+                  type: integer
+                  example: 0
+                totalCredit:
+                  type: integer
+                  example: 0
+                achOperatorData:
+                  type: string
+                  example: ''
+                ODFIIdentification:
+                  type: string
+                  example: ''
+                batchNumber:
+                  type: integer
+                  example: 1
+            offset:
+              type: string | nil
+      IATBatches:
+        type: string | nil
+      fileControl:
+        type: object
+        properties:
+          id:
+            type: string
+            example: '704977'
+          batchCount:
+            type: integer
+            example: 1
+          blockCount:
+            type: integer
+            example: 1
+          entryAddendaCount:
+            type: integer
+            example: 1
+          entryHash:
+            type: integer
+            example: 23138010
+          totalDebit:
+            type: integer
+            example: 0
+          totalCredit:
+            type: integer
+            example: 341
+      fileADVControl:
+        type: object
+        properties:
+          id:
+            type: string
+            example: ''
+          batchCount:
+            type: integer
+            example: 0
+          entryAddendaCount:
+            type: integer
+            example: 0
+          entryHash:
+            type: integer
+            example: 0
+          totalDebit:
+            type: integer
+            example: 0
+          totalCredit:
+            type: integer
+            example: 0
+      NotificationOfChange:
+        type: string | nil
+      ReturnEntries:
+        type: string | nil
+  error:
+    type: string | nil
