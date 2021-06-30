@@ -1,0 +1,60 @@
+
+asyncapi: 2.0.0
+info:
+  title: Payment Inititaion Service
+  version: 1.0.0
+  description: This service is in charge of initiating payment
+servers:
+  production:
+    url: amqp.prod.broker
+    protocol: amqp
+    description: This is "payment ingestion" broker.
+    
+channels:
+  paymewnt_initiation:
+    publish:
+      message:
+        $ref: '#/components/messages/PaymentInitiationRequest'
+
+components:
+  messages:
+    PaymentInitiationRequest:
+      payload:
+        type: object
+        properties:
+          amount:
+            $ref:  '#/components/schemas/InstructedAmount'
+          debtor:
+           $ref:  '#/components/schemas/Debtor'
+          creditor:
+            $ref:  '#/components/schemas/Creditor'
+
+
+  schemas:
+    InstructedAmount:
+      payload:
+        type:  object
+        properties:
+          amount:  number
+          exchange_rate: number
+        
+    Debtor:
+      payload:
+        type:  object
+        properties:
+          debtor_identification:  string
+          account_number:  string
+          institution_code: string
+          institution_name:  string
+          country:  string
+        
+    Creditor:
+      payload:
+        type:  object
+        properties:
+          creditor_identification:  string
+          account_number:  string
+          institution_code: string
+          institution_name:  string
+          country:  string
+        
