@@ -1,0 +1,108 @@
+asyncapi: 2.0.0
+info:
+  title: Payment Reconciliation Service
+  version: 1.0.0
+  description: This service is in charge of reconiliing accounts for a settled payment
+servers:
+  payment_settlement_production:
+    url: mq.prod.broker
+    protocol: jms
+    description: This is "payment settlement" broker.
+  payment_processing_production:
+    url: kafka.prod.broker
+    protocol: kafka
+    description: This is "payment processing" broker.
+    
+channels:
+  payment_processing_reconciliation:
+    subscribe:
+      message:
+        $ref: '#/components/messages/PaymentReconciliationRequest'
+  payment_debtor_reconciliation:
+    publish:
+      message:
+        $ref: '#/components/messages/PaymentReconciliationRequest'
+  payment_creditor_reconciliation:
+    publish:
+      message:
+        $ref: '#/components/messages/PaymentReconciliationRequest'
+  
+        
+  
+components:
+  messages:
+    PaymentReconciliationRequest:
+      contentType:  application/json
+      payload:
+          $ref:  '#/components/schemas/PaymentReconciliation'
+    DebitMessage:
+        contentType:  application/json
+        payload:
+         $ref:  '#/components/schemas/PaymentReconciliationDebit'
+    CreditMessage:
+      contentType:  application/json
+      payload:
+        $ref:  '#/components/schemas/PaymentReconciliationCredit'
+     
+     
+  schemas:
+  
+    PaymentReconciliation:
+      payload:
+        type:  object
+        properties:
+          amount:
+            $ref:  '#/components/schemas/InstructedAmount'
+          debtor:
+           $ref:  '#/components/schemas/Debtor'
+          creditor:
+            $ref:  '#/components/schemas/Creditor'
+          
+    PaymentReconciliationDebit:
+      payload:
+        type:  object
+        properties:
+          amount:
+            $ref:  '#/components/schemas/InstructedAmount'
+          debtor:
+           $ref:  '#/components/schemas/Debtor'
+    
+    PaymentReconciliationCredit:
+      payload:
+        type:  object
+        properties:
+          amount:
+            $ref:  '#/components/schemas/InstructedAmount'
+          creditor:
+           $ref:  '#/components/schemas/Creditor'
+          
+        
+    InstructedAmount:
+      payload:
+        type:  object
+        properties:
+          amount:  number
+          exchange_rate: number
+        
+    Debtor:
+      payload:
+        type:  object
+        properties:
+          debtor_identification:  string
+          account_number:  string
+          institution_code: string
+          institution_name:  string
+          country:  string
+        
+    Creditor:
+      payload:
+        type:  object
+        properties:
+          creditor_identification:  string
+          account_number:  string
+          institution_code: string
+          institution_name:  string
+          country:  string
+          
+ 
+          
