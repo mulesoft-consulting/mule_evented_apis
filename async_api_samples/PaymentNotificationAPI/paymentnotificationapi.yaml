@@ -1,0 +1,43 @@
+asyncapi: 2.0.0
+info:
+  title: Payment Notification Service
+  version: 1.0.0
+  description: This service is in charge of orchestrating a Payment
+servers:
+  notification_production:
+    url: mqtt.prod.broker
+    protocol: secure_mqtt
+    description: This is "the payment notification" broker.
+    
+channels:
+  payment_notification:
+    subscribe:
+      message:
+        $ref: '#/components/messages/NotificationMessage'
+        
+  
+components:
+  messages:
+    NotificationMessage:
+      contentType:  application/json
+      payload:
+        $ref:  '#/components/schemas/Notification'
+    
+
+  schemas:
+          
+    Notification:
+      payload:
+       type:  object
+       properties:
+         message:  string
+         notification_channel:
+           enum:
+             - sms
+             - email
+             - websockets
+         transaction_type:  string
+         transaction_id:  string
+           
+
+
